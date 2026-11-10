@@ -1,0 +1,29 @@
+CMakeFiles/console_core.dir/src/app/game_registry.c.o: \
+ /home/krishna/Desktop/Embedded/Emb_Project/src/app/game_registry.c \
+ /usr/include/stdc-predef.h /usr/include/assert.h /usr/include/features.h \
+ /usr/include/features-time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/app/game.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/platform/input.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/audio/sound.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/snake/snake_game.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/snake/snake.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/pong/pong.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/physics.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/soccer_pool/soccer.h \
+ /home/krishna/Desktop/Embedded/Emb_Project/include/games/fighter/fighter.h

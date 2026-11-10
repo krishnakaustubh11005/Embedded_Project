@@ -4,6 +4,12 @@
 #include "pico/stdlib.h"
 #include "config.h"
 
+/**
+ * Run the Phase 0 learning exercise: LED blink plus USB counter.
+ * @return Never returns during normal operation.
+ * @note Blink timing comes from config.h. sleep_ms() pauses this loop; printf()
+ *       sends text over USB serial and does not require the UART GPIO pins.
+ */
 int main(void) {
     stdio_init_all();  // Initialize the USB serial output enabled in CMake.
     gpio_init(LED_PIN);

@@ -1,2 +1,5 @@
 # Generated build directories, including those inside learning exercises.
 build/
+
+# Python interpreter caches from the serial monitor.
+__pycache__/

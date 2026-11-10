@@ -1,43 +1,48 @@
-# PIO Pong — Pico 2 console
+# Pico Arcade Console
 
-EE4500 project for the non-wireless Raspberry Pi Pico 2 (RP2350, Arm cores).
-The actual firmware lives here. `Test_Proj/` contains separate learning exercises.
-Follow `Agents.md` for the phase plan and learn-first workflow.
+Firmware for the non-wireless Raspberry Pi Pico 2 (RP2350), a 2.8-inch
+240x320 ST7789 display, and Funduino joystick-shield controls. The firmware
+currently includes Snake, two-axis two-player Pong, turn-based Soccer Pool,
+and Shade Duel, a two-player silhouette fighting game.
+`Test_Proj/` remains the separate learning sandbox; production source is in
+`src/` and `include/`.
 
-## Phase 0 build
+## Build
 
-Run from this folder:
+Configure with the Pico SDK installed and `PICO_SDK_PATH` set:
 
 ```sh
-export PICO_SDK_PATH=/home/krishna/Desktop/Embedded/tools/pico-sdk
-cmake -S . -B build -DPICO_BOARD=pico2 \
-  -Dpicotool_DIR=/home/krishna/Desktop/Embedded/project_test/build/_deps/picotool
+cmake -S . -B build -DPICO_BOARD=pico2
 cmake --build build -j2
 ```
 
-These SDK and picotool paths refer to existing installations on this computer;
-update them on another machine. The explicit picotool path selects a complete
-2.3.0 CMake package. Build directories are ignored by Git.
+The firmware UF2 is `build/game_console.uf2`. Enter BOOTSEL mode to copy it
+with `picotool load build/game_console.uf2`, then reboot with `picotool reboot`.
+USB serial uses 115200 baud. Find the port with
+`python3 -m serial.tools.list_ports`, then open it with
+`python3 -m serial.tools.miniterm PORT 115200` (Ctrl+] exits).
 
-## Flash and observe
+## Controls and menu
 
-Connect the board while holding BOOTSEL, then release the button:
+Use A/C to move through menus and B to select. In games, START/SELECT
+(joystick-click inputs) pause and resume. Snake uses A=up, B=right, C=down,
+D=left. Pong uses the two joystick axes for each player's paddle. Soccer Pool
+uses A/C to choose a disk, B to shoot, and D to set shot power. Shade Duel
+uses the stick to walk/jump/crouch, A punch (forward+A uppercut), B kick
+(down+B sweep, airborne B flying kick), C block (back+C roll) and D for the
+Brazilian kick, which needs a full energy cell. On the Shade Duel rules
+screen, C switches the sound theme between NINJA (synthesized hits) and CLIPS
+(the recorded kick/punch sounds). USB commands
+include `HELP`, `MENU`, `STATUS`, `CAL`, `MUTE`/`UNMUTE`, `THEME` and `DEV ON`/`DEV OFF`; see
+`docs/architecture.md` for details.
 
-```sh
-picotool load build/pio_pong.uf2
-picotool reboot
-python3 -m serial.tools.miniterm /dev/ttyACM0 115200
-```
+## Project notes
 
-The LED should alternate on and off every 500 ms and the counter should print
-approximately once per second. The serial port may have a different number;
-use `python3 -m serial.tools.list_ports` to find it. Exit the monitor with Ctrl+].
+- Pin assignments and mux wiring: [docs/wiring.md](docs/wiring.md)
+- Software structure and USB commands: [docs/architecture.md](docs/architecture.md)
+- Student-reported hardware and timing observations: [docs/measurements.md](docs/measurements.md)
+- Learning sequence and collaboration instructions: [Agents.md](Agents.md)
 
-## Layout
-
-- `src/main.c`: current Phase 0 firmware.
-- `include/config.h`: central hardware and timing settings.
-- `docs/`: wiring, architecture, and observed measurements.
-- `Test_Proj/`: independent practice programs.
-
-Later modules will be added during their corresponding phases.
+The host-side rule/UI tests can be built with
+`cmake -S . -B build/host -DCONSOLE_HOST_ONLY=ON`, then
+`cmake --build build/host` and `ctest --test-dir build/host --output-on-failure`.

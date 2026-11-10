@@ -1,0 +1,1 @@
+/usr/bin/cc -fsanitize=address,undefined CMakeFiles/console_tests.dir/tests/unit/console_tests.c.o -o console_tests  libconsole_core.a -lm 

@@ -1,0 +1,5 @@
+/home/krishna/Desktop/Embedded/Emb_Project/build-host/CMakeFiles/console_core.dir
+/home/krishna/Desktop/Embedded/Emb_Project/build-host/CMakeFiles/console_tests.dir
+/home/krishna/Desktop/Embedded/Emb_Project/build-host/CMakeFiles/test.dir
+/home/krishna/Desktop/Embedded/Emb_Project/build-host/CMakeFiles/edit_cache.dir
+/home/krishna/Desktop/Embedded/Emb_Project/build-host/CMakeFiles/rebuild_cache.dir
